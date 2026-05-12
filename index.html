@@ -24,6 +24,7 @@
       --rule-soft: #f1f1f1;
       --link: #c2410c;
       --accent: #ea580c;
+      --accent-2: #047857;
       --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
       --max: 720px;
@@ -40,6 +41,7 @@
         --rule-soft: #1a1a1d;
         --link: #fb923c;
         --accent: #fb923c;
+        --accent-2: #34d399;
       }
     }
 
@@ -261,7 +263,11 @@
       margin-left: 4px;
     }
     ol.pubs .venue.hi {
-      color: var(--accent);
+      color: var(--accent-2);
+      font-weight: 500;
+    }
+    .item-head .meta.hi {
+      color: var(--accent-2);
       font-weight: 500;
     }
     .item-body em {
@@ -367,7 +373,7 @@
     <div class="item">
       <div class="item-head">
         <h3>Geometry-Aware Decoding for LLMs</h3>
-        <span class="meta">ICML 2026 · spotlight</span>
+        <span class="meta hi">ICML 2026 · spotlight</span>
       </div>
       <div class="item-body">
         An LLM decoding algorithm combining Wasserstein-regularized truncation with mass penalties — producing more reliable, better-calibrated generation.
@@ -397,7 +403,7 @@
     <div class="item">
       <div class="item-head">
         <h3>Learning Contraction Policies From Offline Data</h3>
-        <span class="meta">IEEE RA-L 2022 · NeurIPS Best Paper</span>
+        <span class="meta hi">IEEE RA-L 2022 · NeurIPS Best Paper</span>
       </div>
       <div class="item-body">
         Contraction-theoretic policy learning from offline trajectories with formal stability guarantees.
@@ -463,12 +469,12 @@
       <li>
         <span class="title">A Study of Privacy Preservation in Average Consensus Algorithm via Deterministic Obfuscation Signals.</span>
         <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
-        <span class="venue">IEEE TCNS, 2024.</span>
+        <span class="venue hi">IEEE TCNS, 2024.</span>
       </li>
       <li>
         <span class="title">Distributed Strategy Selection: A Submodular Set Function Maximization Approach.</span>
         <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
-        <span class="venue">Automatica, 2023.</span>
+        <span class="venue hi">Automatica, 2023.</span>
       </li>
       <li>
         <span class="title">Distributed Submodular Maximization: Trading Performance for Privacy.</span>
@@ -478,7 +484,7 @@
       <li>
         <span class="title">A Sub-Modular Receding Horizon Solution for Mobile Multi-Agent Persistent Monitoring.</span>
         <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
-        <span class="venue">Automatica, 2021.</span>
+        <span class="venue hi">Automatica, 2021.</span>
       </li>
       <li>
         <span class="title">Multi-Agent Maximization of a Monotone Submodular Function via Maximum Consensus.</span>
