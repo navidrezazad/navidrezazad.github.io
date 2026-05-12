@@ -108,6 +108,28 @@
     .hero {
       padding: 80px 0 64px;
     }
+    .hero-head {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 26px;
+    }
+    .hero-head > div { flex: 1; min-width: 0; }
+    .hero-head h1 { margin-bottom: 6px; }
+    .hero-head .role { margin-bottom: 0; }
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .hero-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .avatar { width: 76px; height: 76px; }
+    }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 2.6rem);
       font-weight: 600;
@@ -351,8 +373,13 @@
 <main class="wrap" id="top">
 
   <section class="hero" style="border-top: none; padding-top: 80px;">
-    <h1>Navid Rezazadeh</h1>
-    <p class="role">Machine Learning Research Engineer at Apple · Ph.D., UC Irvine</p>
+    <div class="hero-head">
+      <img class="avatar" src="avatar.jpg" alt="Navid Rezazadeh" width="88" height="88" />
+      <div>
+        <h1>Navid Rezazadeh</h1>
+        <p class="role">Machine Learning Research Engineer at Apple · Ph.D., UC Irvine</p>
+      </div>
+    </div>
     <p class="lede">
       I work on the mathematical foundations of large language models and generative systems —
       LLM decoding, transformer verification, generative modeling, and GPU-accelerated scientific computing.
