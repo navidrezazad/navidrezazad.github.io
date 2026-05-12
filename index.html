@@ -3,45 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navid Rezazadeh — ML Research Engineer</title>
-  <meta name="description" content="Navid Rezazadeh — Machine Learning Research Engineer at Apple. Research in LLM decoding, transformer verification, generative models, and GPU-accelerated scientific computing. ICML 2026 spotlight, NeurIPS Best Paper." />
+  <title>Navid Rezazadeh</title>
+  <meta name="description" content="Navid Rezazadeh — Machine Learning Research Engineer at Apple. Research in LLM decoding, transformer verification, generative models, and GPU-accelerated scientific computing." />
   <meta name="author" content="Navid Rezazadeh" />
-  <meta property="og:title" content="Navid Rezazadeh — ML Research Engineer" />
-  <meta property="og:description" content="ICML 2026 spotlight · NeurIPS Best Paper · Apple ML Research" />
+  <meta property="og:title" content="Navid Rezazadeh" />
+  <meta property="og:description" content="ML Research Engineer at Apple · ICML 2026 spotlight · NeurIPS Best Paper" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #0a0b10;
-      --surface: #13151c;
-      --surface-2: #191b24;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-2: rgba(255, 255, 255, 0.16);
-      --text: #f2f3f7;
-      --text-dim: #a3a7b5;
-      --text-dimmer: #6a6e7b;
-      --accent: #ff9f6a;
-      --accent-2: #ff5e8a;
-      --accent-grad: linear-gradient(135deg, #ff9f6a 0%, #ff5e8a 100%);
-      --link: #8cd2f2;
-      --radius: 16px;
-      --radius-sm: 10px;
-      --max: 1080px;
-      --pad-x: clamp(20px, 5vw, 64px);
+      --bg: #ffffff;
+      --text: #0a0a0a;
+      --text-2: #4a4a4a;
+      --text-3: #777;
+      --rule: #e8e8e8;
+      --rule-soft: #f1f1f1;
+      --link: #1a56db;
+      --accent: #0a0a0a;
       --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      --serif: 'Instrument Serif', Georgia, serif;
-      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+      --max: 720px;
+      --pad-x: clamp(22px, 5vw, 40px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f0f10;
+        --text: #f4f4f5;
+        --text-2: #b5b5bc;
+        --text-3: #8a8a92;
+        --rule: #232326;
+        --rule-soft: #1a1a1d;
+        --link: #7bb5ff;
+        --accent: #f4f4f5;
+      }
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -50,786 +53,509 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      font-feature-settings: "ss01", "cv11";
     }
+    ::selection { background: rgba(26, 86, 219, 0.18); }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(900px 500px at 10% -8%, rgba(255, 159, 106, 0.10), transparent 70%),
-        radial-gradient(700px 400px at 92% 8%, rgba(255, 94, 138, 0.07), transparent 70%);
-      z-index: -1;
-    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    ::selection { background: rgba(255, 159, 106, 0.28); color: var(--text); }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* Nav */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      padding: 18px var(--pad-x);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(10, 11, 16, 0.55);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease, background 0.3s ease;
-    }
-    .nav.scrolled { border-bottom-color: var(--border); background: rgba(10, 11, 16, 0.88); }
-    .nav-inner {
+    /* Container */
+    .wrap {
       max-width: var(--max);
       margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    /* Nav */
+    nav.top {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      nav.top { background: rgba(15, 15, 16, 0.85); }
+    }
+    nav.top.scrolled { border-bottom-color: var(--rule); }
+    .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 16px 0;
       gap: 20px;
     }
-    .nav-brand {
-      font-family: var(--serif);
-      font-size: 22px;
-      letter-spacing: 0.2px;
+    .nav-name { font-weight: 600; font-size: 15px; color: var(--text); }
+    .nav-links { display: flex; gap: 22px; font-size: 14px; }
+    .nav-links a {
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color 0.15s ease;
     }
-    .nav-brand em { font-style: italic; color: var(--accent); }
-    .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--text-dim); }
-    .nav-links a { transition: color 0.2s ease; }
-    .nav-links a:hover { color: var(--text); }
-    @media (max-width: 760px) { .nav-links { display: none; } }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    @media (max-width: 640px) {
+      .nav-links { gap: 16px; }
+      .nav-links a.hide-sm { display: none; }
+    }
 
     /* Hero */
     .hero {
-      padding: clamp(72px, 13vh, 140px) var(--pad-x) clamp(56px, 9vh, 96px);
-      max-width: var(--max);
-      margin: 0 auto;
-      position: relative;
+      padding: 80px 0 64px;
     }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border: 1px solid var(--border-2);
-      border-radius: 999px;
-      font-size: 11.5px;
-      font-family: var(--mono);
-      letter-spacing: 1.2px;
-      color: var(--text-dim);
-      margin-bottom: 32px;
-    }
-    .hero-tag .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255, 159, 106, 0.25);
-      animation: pulse 2.6s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(255, 159, 106, 0.25); }
-      50%      { box-shadow: 0 0 0 8px rgba(255, 159, 106, 0.04); }
-    }
-
     .hero h1 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(3.4rem, 10vw, 7rem);
-      line-height: 0.98;
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      font-weight: 600;
       letter-spacing: -0.02em;
-      margin-bottom: 24px;
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
-    .hero h1 em {
-      background: var(--accent-grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-style: italic;
+    .hero .role {
+      font-size: 17px;
+      color: var(--text-2);
+      margin-bottom: 28px;
     }
-    .hero-role {
-      font-size: clamp(1.05rem, 1.9vw, 1.2rem);
+    .hero .lede {
+      font-size: 17px;
       color: var(--text);
-      max-width: 620px;
-      margin-bottom: 18px;
-      font-weight: 500;
-    }
-    .hero-role .sep { color: var(--text-dimmer); margin: 0 8px; }
-    .hero-lede {
-      font-size: clamp(1rem, 1.5vw, 1.08rem);
-      color: var(--text-dim);
-      max-width: 620px;
-      margin-bottom: 40px;
       line-height: 1.7;
+      margin-bottom: 28px;
     }
-    .hero-cta {
+    .hero .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 44px;
+      gap: 0 22px;
+      font-size: 15px;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 18px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
-      border: 1px solid var(--border-2);
-      background: var(--surface);
-      color: var(--text);
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
+    .hero .links a {
+      color: var(--link);
+      padding: 4px 0;
     }
-    .btn:hover { transform: translateY(-2px); background: var(--surface-2); border-color: rgba(255, 255, 255, 0.26); }
-    .btn-primary {
-      background: var(--accent-grad);
-      border-color: transparent;
-      color: #1a0a0a;
-      font-weight: 600;
-    }
-    .btn-primary:hover { filter: brightness(1.08); background: var(--accent-grad); }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-    }
-    .stat .num {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 2.2rem;
-      line-height: 1;
-      background: var(--accent-grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .stat .num em { font-style: italic; }
-    .stat .lbl {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 1.2px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-top: 8px;
+    .hero .links .sep { color: var(--text-3); }
+    @media (max-width: 480px) {
+      .hero .links { gap: 8px 18px; }
+      .hero .links .sep { display: none; }
     }
 
     /* Sections */
-    section.sec {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: clamp(56px, 9vh, 92px) var(--pad-x);
+    section {
+      padding: 44px 0;
+      border-top: 1px solid var(--rule);
     }
-    .section-label {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 11.5px;
-      letter-spacing: 2px;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .section-title {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      margin-bottom: 44px;
-    }
-    .section-title em {
-      font-style: italic;
-      background: var(--accent-grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* Research grid */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-    }
-    .research-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .research-card:hover { transform: translateY(-4px); border-color: var(--border-2); background: var(--surface-2); }
-    .research-card .venue {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--mono);
-      font-size: 10.5px;
-      letter-spacing: 1.2px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: rgba(255, 159, 106, 0.10);
-      color: var(--accent);
-      border: 1px solid rgba(255, 159, 106, 0.24);
-      margin-bottom: 16px;
-      text-transform: uppercase;
-    }
-    .research-card h3 {
-      font-size: 19px;
+    h2 {
+      font-size: 14px;
       font-weight: 600;
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 28px;
     }
-    .research-card p {
-      font-size: 14.5px;
-      color: var(--text-dim);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .research-card .repo-link {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--link);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      word-break: break-all;
-    }
-    .research-card .repo-link:hover { text-decoration: underline; }
 
-    /* Experience */
-    .exp-block { margin-bottom: 52px; }
-    .exp-block:last-child { margin-bottom: 0; }
-    .exp-head {
+    /* Item list (research, experience, education) */
+    .item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .item:last-child { border-bottom: none; }
+    .item:first-child { padding-top: 0; }
+
+    .item-head {
       display: flex;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 4px;
       align-items: baseline;
-    }
-    .exp-head h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
-    .exp-head .when {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      color: var(--text-dim);
-      letter-spacing: 1.2px;
-    }
-    .exp-role { color: var(--text-dim); margin-bottom: 26px; font-size: 15px; }
-    .exp-list { list-style: none; display: grid; gap: 16px; }
-    .exp-list li {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 20px;
-      align-items: start;
-    }
-    .exp-list li strong {
-      font-weight: 600;
-      color: var(--accent);
-      font-size: 13.5px;
-    }
-    .exp-list li span { color: var(--text-dim); font-size: 15px; line-height: 1.6; }
-    .exp-list li span a { color: var(--link); }
-    .exp-list li span a:hover { text-decoration: underline; }
-    @media (max-width: 640px) {
-      .exp-list li { grid-template-columns: 1fr; gap: 6px; }
-    }
-
-    /* Publications */
-    .pub-list { display: grid; }
-    .pub {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 24px;
-      padding: 20px 0;
-      border-top: 1px solid var(--border);
-    }
-    .pub:first-child { border-top: none; padding-top: 0; }
-    .pub .venue {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      color: var(--text-dim);
-      letter-spacing: 1.2px;
-      padding-top: 3px;
-      text-transform: uppercase;
-    }
-    .pub .venue.hi {
-      color: var(--accent);
-      font-weight: 500;
-    }
-    .pub .title {
-      font-size: 15.5px;
-      font-weight: 500;
-      color: var(--text);
       margin-bottom: 4px;
-      line-height: 1.45;
+    }
+    .item-head h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
       letter-spacing: -0.005em;
     }
-    .pub .authors { font-size: 13.5px; color: var(--text-dim); }
-    .pub .authors em { color: var(--text); font-style: normal; font-weight: 500; }
-    @media (max-width: 640px) {
-      .pub { grid-template-columns: 1fr; gap: 6px; }
+    .item-head .meta {
+      font-size: 13.5px;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+    .item-sub {
+      font-size: 14.5px;
+      color: var(--text-2);
+      margin-bottom: 10px;
+    }
+    .item-body {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .item-body p { margin-bottom: 10px; }
+    .item-body p:last-child { margin-bottom: 0; }
+
+    /* Research bullet-style items */
+    .bullets {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .bullets li {
+      color: var(--text-2);
+      font-size: 15px;
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.7em;
+      width: 4px; height: 4px;
+      background: var(--text-3);
+      border-radius: 50%;
+    }
+    .bullets li b {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Publications list */
+    ol.pubs {
+      list-style: none;
+      counter-reset: pub;
+    }
+    ol.pubs li {
+      counter-increment: pub;
+      padding: 14px 0 14px 36px;
+      border-bottom: 1px solid var(--rule-soft);
+      position: relative;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    ol.pubs li:last-child { border-bottom: none; }
+    ol.pubs li::before {
+      content: "[" counter(pub) "]";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      color: var(--text-3);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+    ol.pubs .title {
+      color: var(--text);
+      font-weight: 500;
+    }
+    ol.pubs .authors {
+      color: var(--text-2);
+      font-size: 14px;
+    }
+    ol.pubs .authors b {
+      color: var(--text);
+      font-weight: 600;
+    }
+    ol.pubs .venue {
+      color: var(--text-3);
+      font-size: 13.5px;
+      margin-left: 4px;
+    }
+    ol.pubs .venue.hi {
+      color: var(--text);
+      font-weight: 500;
     }
 
     /* Skills */
-    .skills { display: grid; gap: 32px; }
-    .skill-label {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      font-size: 13px;
-      color: var(--text-dim);
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-    }
-    .tag:hover { border-color: var(--border-2); color: var(--text); background: var(--surface-2); }
-
-    /* Education */
-    .edu-list { display: grid; gap: 28px; }
-    .edu {
+    .skills dl {
       display: grid;
-      grid-template-columns: 1fr auto;
       gap: 16px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
     }
-    .edu:last-child { border-bottom: none; padding-bottom: 0; }
-    .edu h4 { font-size: 17px; font-weight: 600; margin-bottom: 5px; letter-spacing: -0.01em; }
-    .edu p { color: var(--text-dim); font-size: 14.5px; line-height: 1.6; }
-    .edu p em { font-style: italic; color: var(--text); }
-    .edu .when {
-      font-family: var(--mono);
-      font-size: 11.5px;
-      color: var(--text-dim);
-      letter-spacing: 1.2px;
-      white-space: nowrap;
+    .skills .row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 20px;
+      align-items: start;
     }
-    @media (max-width: 640px) { .edu { grid-template-columns: 1fr; } }
+    .skills dt {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      padding-top: 1px;
+    }
+    .skills dd {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .skills .row { grid-template-columns: 1fr; gap: 4px; }
+    }
 
     /* Honors */
-    .honor-list { display: grid; gap: 10px; list-style: none; }
-    .honor-list li {
-      display: flex; gap: 14px; align-items: flex-start;
-      color: var(--text-dim);
-      font-size: 15px;
-      padding: 4px 0;
+    ul.plain {
+      list-style: none;
+      display: grid;
+      gap: 8px;
     }
-    .honor-list li::before {
-      content: "◆";
-      color: var(--accent);
-      font-size: 10px;
-      margin-top: 7px;
-      flex-shrink: 0;
+    ul.plain li {
+      color: var(--text-2);
+      font-size: 15px;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+    ul.plain li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--text-3);
     }
 
     /* Footer */
     footer {
-      max-width: var(--max);
-      margin: 80px auto 0;
-      padding: 56px var(--pad-x);
-      border-top: 1px solid var(--border);
+      padding: 40px 0 64px;
+      border-top: 1px solid var(--rule);
+      margin-top: 24px;
     }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .footer-name {
-      font-family: var(--serif);
-      font-size: 20px;
-    }
-    .footer-name em { font-style: italic; color: var(--accent); }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
+    footer p {
       font-size: 13px;
-      color: var(--text-dim);
-      font-family: var(--mono);
-      letter-spacing: 0.5px;
-    }
-    .footer-links a { transition: color 0.2s ease; }
-    .footer-links a:hover { color: var(--accent); }
-    .footer-tiny {
-      font-size: 12px;
-      color: var(--text-dimmer);
-      margin-top: 20px;
-      font-family: var(--mono);
-      letter-spacing: 0.3px;
-    }
-
-    /* Reveal on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.7s cubic-bezier(.2, .7, .2, 1), transform 0.7s cubic-bezier(.2, .7, .2, 1);
-    }
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Copy email button state */
-    .btn[data-copy].copied::after {
-      content: " · copied";
-      color: var(--text-dim);
-      font-size: 12px;
+      color: var(--text-3);
     }
 
   </style>
 </head>
 <body>
 
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-brand">Navid <em>Rezazadeh</em></a>
+<nav class="top" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-name">Navid Rezazadeh</a>
     <div class="nav-links">
-      <a href="#research">Research</a>
+      <a href="#research" class="hide-sm">Research</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
-      <a href="#skills">Skills</a>
       <a href="resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
     </div>
   </div>
 </nav>
 
-<main id="top">
+<main class="wrap" id="top">
 
-  <section class="hero">
-    <div class="hero-tag"><span class="dot"></span>ICML 2026 SPOTLIGHT · NEURIPS BEST PAPER</div>
-
-    <h1><em>Navid</em><br/>Rezazadeh.</h1>
-
-    <p class="hero-role">
-      Machine Learning Research Engineer at Apple<span class="sep">·</span>Ph.D., UC Irvine
-    </p>
-
-    <p class="hero-lede">
+  <section class="hero" style="border-top: none; padding-top: 80px;">
+    <h1>Navid Rezazadeh</h1>
+    <p class="role">Machine Learning Research Engineer at Apple · Ph.D., UC Irvine</p>
+    <p class="lede">
       I work on the mathematical foundations of large language models and generative systems —
       LLM decoding, transformer verification, generative modeling, and GPU-accelerated scientific computing.
+      My recent work on geometry-aware LLM decoding is an ICML 2026 spotlight.
     </p>
-
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">📄 Resume</a>
-      <a class="btn" href="mailto:nrezazad@uci.edu" data-copy="nrezazad@uci.edu" id="emailBtn">✉ nrezazad@uci.edu</a>
-      <a class="btn" href="https://www.linkedin.com/in/nrezazadeh/" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn" href="https://github.com/navidrezazad" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn" href="https://scholar.google.com/scholar?q=Navid+Rezazadeh" target="_blank" rel="noopener">Scholar ↗</a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat"><div class="num">Apple</div><div class="lbl">ML Research</div></div>
-      <div class="stat"><div class="num"><em>12</em>+</div><div class="lbl">Publications</div></div>
-      <div class="stat"><div class="num">ICML<em>'26</em></div><div class="lbl">Spotlight</div></div>
-      <div class="stat"><div class="num">NeurIPS</div><div class="lbl">Best Paper</div></div>
+    <div class="links">
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a><span class="sep">·</span>
+      <a href="mailto:nrezazad@uci.edu">Email</a><span class="sep">·</span>
+      <a href="https://github.com/navidrezazad" target="_blank" rel="noopener">GitHub</a><span class="sep">·</span>
+      <a href="https://www.linkedin.com/in/nrezazadeh/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">·</span>
+      <a href="https://scholar.google.com/scholar?q=Navid+Rezazadeh" target="_blank" rel="noopener">Scholar</a>
     </div>
   </section>
 
-  <section id="research" class="sec reveal">
-    <span class="section-label">Selected Research</span>
-    <h2 class="section-title">Ideas with <em>tight bounds</em>.</h2>
-    <div class="research-grid">
+  <section id="research">
+    <h2>Selected Research</h2>
 
-      <article class="research-card">
-        <span class="venue">ICML 2026 · Spotlight</span>
-        <h3>Geometry-Aware Decoding</h3>
-        <p>An LLM decoding algorithm combining Wasserstein-regularized truncation with mass penalties — producing more reliable, better-calibrated generation at scale.</p>
-      </article>
+    <div class="item">
+      <div class="item-head">
+        <h3>Geometry-Aware Decoding for LLMs</h3>
+        <span class="meta">ICML 2026 · spotlight</span>
+      </div>
+      <div class="item-body">
+        An LLM decoding algorithm combining Wasserstein-regularized truncation with mass penalties — producing more reliable, better-calibrated generation.
+      </div>
+    </div>
 
-      <article class="research-card">
-        <span class="venue">arXiv · Open Source</span>
-        <h3>Vertex-Softmax</h3>
-        <p>An exact softmax optimization method that yields strictly tighter certified bounds for transformer verification than standard relaxation-based approaches.</p>
-        <a class="repo-link" href="https://github.com/navidrezazad/VertexSoftmax" target="_blank" rel="noopener">→ github.com/navidrezazad/VertexSoftmax</a>
-      </article>
+    <div class="item">
+      <div class="item-head">
+        <h3>Vertex-Softmax: Tight Transformer Verification</h3>
+        <span class="meta">arXiv · <a href="https://github.com/navidrezazad/VertexSoftmax" target="_blank" rel="noopener">code</a></span>
+      </div>
+      <div class="item-body">
+        An exact softmax optimization method that yields strictly tighter certified bounds for transformer verification than standard relaxation-based approaches.
+      </div>
+    </div>
 
-      <article class="research-card">
-        <span class="venue">arXiv</span>
+    <div class="item">
+      <div class="item-head">
         <h3>Backtracking Dynamics &amp; Early Exit</h3>
-        <p>Investigates how LLMs revise reasoning mid-generation, and proposes early-exit criteria that reduce wasted compute without sacrificing answer quality.</p>
-      </article>
+        <span class="meta">arXiv</span>
+      </div>
+      <div class="item-body">
+        Investigates how LLMs revise reasoning mid-generation, and proposes early-exit criteria that reduce wasted compute without sacrificing answer quality.
+      </div>
+    </div>
 
-      <article class="research-card">
-        <span class="venue">NeurIPS · Best Paper</span>
-        <h3>Learning Contraction Policies</h3>
-        <p>Contraction-theoretic policy learning from offline data with formal stability guarantees. Published in IEEE RA-L; awarded NeurIPS SafeRL Best Paper.</p>
-      </article>
-
+    <div class="item">
+      <div class="item-head">
+        <h3>Learning Contraction Policies From Offline Data</h3>
+        <span class="meta">IEEE RA-L 2022 · NeurIPS Best Paper</span>
+      </div>
+      <div class="item-body">
+        Contraction-theoretic policy learning from offline trajectories with formal stability guarantees.
+      </div>
     </div>
   </section>
 
-  <section id="experience" class="sec reveal">
-    <span class="section-label">Experience</span>
-    <h2 class="section-title">Where math meets the <em>machine</em>.</h2>
+  <section id="experience">
+    <h2>Experience</h2>
 
-    <div class="exp-block">
-      <div class="exp-head">
-        <h3>Apple — Machine Learning Research Engineer</h3>
-        <span class="when">JUN 2022 — PRESENT · SAN DIEGO, CA</span>
+    <div class="item">
+      <div class="item-head">
+        <h3>Apple, Machine Learning Research Engineer</h3>
+        <span class="meta">San Diego · Jun 2022 – Present</span>
       </div>
-      <p class="exp-role">LLM reliability, generative modeling, time-series learning, and GPU-accelerated scientific computing.</p>
-      <ul class="exp-list">
-        <li>
-          <strong>Vertex-Softmax</strong>
-          <span>Developed an exact softmax optimization method yielding tighter certified bounds for transformer verification than relaxation-based methods. <a href="https://github.com/navidrezazad/VertexSoftmax" target="_blank" rel="noopener">Open-sourced</a>.</span>
-        </li>
-        <li>
-          <strong>Geometry-Aware Decoding</strong>
-          <span>Co-developed Wasserstein-regularized truncation with mass penalties for LLM generation. ICML 2026 Spotlight.</span>
-        </li>
-        <li>
-          <strong>Backtracking Dynamics</strong>
-          <span>Investigated mid-generation reasoning dynamics in LLMs and proposed early-exit criteria for efficient inference.</span>
-        </li>
-        <li>
-          <strong>Transformer Forecasting</strong>
-          <span>Designed transformer and Informer architectures for short-horizon forecasting on high-resolution signals; benchmarked against ARIMA / ARMA under rolling out-of-sample validation.</span>
-        </li>
-        <li>
-          <strong>Generative Modeling</strong>
-          <span>Built GAN, diffusion, and copula-based surrogates for scientific simulators; validated samples with MMD, feature statistics, and chi-square distributional tests.</span>
-        </li>
-        <li>
-          <strong>GPU Scientific Computing</strong>
-          <span>Re-architected scalar pipelines into batched PyTorch/CUDA with multi-GPU data parallelism — multi-week runs compressed to sub-hour while preserving CPU-reference parity.</span>
-        </li>
+      <ul class="bullets">
+        <li><b>Vertex-Softmax.</b> Exact softmax optimization yielding tighter certified bounds for transformer verification than relaxation-based methods. <a href="https://github.com/navidrezazad/VertexSoftmax" target="_blank" rel="noopener">Open-sourced</a>.</li>
+        <li><b>Geometry-Aware Decoding.</b> Co-developed Wasserstein-regularized truncation with mass penalties for LLM generation. ICML 2026 spotlight.</li>
+        <li><b>Backtracking Dynamics.</b> Investigated mid-generation reasoning dynamics in LLMs; proposed early-exit criteria for efficient inference.</li>
+        <li><b>Transformer Forecasting.</b> Designed transformer and Informer architectures for short-horizon forecasting on high-resolution signals; benchmarked against ARIMA / ARMA under rolling out-of-sample validation.</li>
+        <li><b>Generative Modeling.</b> Built GAN, diffusion, and copula-based surrogates for scientific simulators; validated with MMD, feature statistics, and chi-square distributional tests.</li>
+        <li><b>GPU Scientific Computing.</b> Re-architected scalar pipelines into batched PyTorch/CUDA with multi-GPU data parallelism — multi-week runs compressed to sub-hour with CPU-reference parity.</li>
       </ul>
     </div>
 
-    <div class="exp-block">
-      <div class="exp-head">
-        <h3>University of California, Irvine — Graduate Research Assistant</h3>
-        <span class="when">JUN 2016 — JUN 2022 · IRVINE, CA</span>
+    <div class="item">
+      <div class="item-head">
+        <h3>UC Irvine, Graduate Research Assistant</h3>
+        <span class="meta">Irvine · Jun 2016 – Jun 2022</span>
       </div>
-      <p class="exp-role">Ph.D. research on learning for control, distributed optimization, and private networked systems.</p>
-      <ul class="exp-list">
-        <li>
-          <strong>Learning for Control</strong>
-          <span>Introduced contraction-theoretic policy learning from offline data with stability guarantees. NeurIPS SafeRL Best Paper.</span>
-        </li>
-        <li>
-          <strong>Probabilistic Estimation</strong>
-          <span>Built estimation and localization methods for noisy networked systems.</span>
-        </li>
-        <li>
-          <strong>Distributed Optimization</strong>
-          <span>Developed algorithms for multi-agent decision-making with provable guarantees.</span>
-        </li>
-        <li>
-          <strong>Private Networked Systems</strong>
-          <span>Designed privacy-preserving consensus methods over directed graphs.</span>
-        </li>
+      <ul class="bullets">
+        <li><b>Learning for Control.</b> Jointly learned a neural control policy and its contraction metric from offline trajectory data, enforcing stability guarantees via contraction theory. NeurIPS SafeRL Best Paper (IEEE RA-L 2022).</li>
+        <li><b>Probabilistic Estimation.</b> Built Kalman, sigma-point, and particle filtering methods for probabilistic localization and state estimation in noisy networked systems.</li>
+        <li><b>Distributed Optimization.</b> Developed distributed algorithms for multi-agent submodular maximization and persistent monitoring with provable optimality bounds, using multilinear extensions, stochastic Pipage rounding, and receding-horizon policy design (Automatica 2023, Automatica 2021).</li>
+        <li><b>Private Networked Systems.</b> Designed additive-obfuscation privacy-preserving consensus protocols with formal deterministic privacy guarantees against network eavesdroppers while preserving convergence to the true average (IEEE TCNS 2024).</li>
       </ul>
     </div>
   </section>
 
-  <section id="publications" class="sec reveal">
-    <span class="section-label">Publications &amp; Manuscripts</span>
-    <h2 class="section-title">Papers, in <em>chronological</em> order.</h2>
-
-    <div class="pub-list">
-
-      <div class="pub">
-        <span class="venue">arXiv</span>
-        <div>
-          <div class="title">Vertex-Softmax: Tight Transformer Verification via Exact Softmax Optimization</div>
-          <div class="authors"><em>N. Rezazadeh</em>, A. Gholami</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">arXiv</span>
-        <div>
-          <div class="title">Backtracking Dynamics and Early Exit</div>
-          <div class="authors"><em>N. Rezazadeh</em>, A. Gholami, P. Pezeshkpour</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue hi">ICML 2026 · spotlight</span>
-        <div>
-          <div class="title">Geometry-Aware Decoding with Wasserstein-Regularized Truncation and Mass Penalties for LLMs</div>
-          <div class="authors">A. Gholami Davoodi, <em>N. Rezazadeh</em>, S. P. Mousavi Davoudi, P. Pezeshkpour</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue hi">IEEE RA-L 2022 · NeurIPS Best Paper</span>
-        <div>
-          <div class="title">Learning Contraction Policies From Offline Data</div>
-          <div class="authors"><em>N. Rezazadeh</em>, M. Kolarich, S. S. Kia, N. Mehr</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">IEEE TCNS 2024</span>
-        <div>
-          <div class="title">A Study of Privacy Preservation in Average Consensus Algorithm via Deterministic Obfuscation Signals</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">Automatica 2023</span>
-        <div>
-          <div class="title">Distributed Strategy Selection: A Submodular Set Function Maximization Approach</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">IEEE CDC 2022</span>
-        <div>
-          <div class="title">Distributed Submodular Maximization: Trading Performance for Privacy</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">Automatica 2021</span>
-        <div>
-          <div class="title">A Sub-Modular Receding Horizon Solution for Mobile Multi-Agent Persistent Monitoring</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">IEEE CDC 2021</span>
-        <div>
-          <div class="title">Multi-Agent Maximization of a Monotone Submodular Function via Maximum Consensus</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">IFAC 2019</span>
-        <div>
-          <div class="title">A Sub-Modular Receding Horizon Approach to Persistent Monitoring for a Group of Mobile Agents Over an Urban Area</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">arXiv 2019</span>
-        <div>
-          <div class="title">Privacy Preservation in Continuous-Time Average Consensus Algorithm via Deterministic Additive Obfuscation Signals</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-      <div class="pub">
-        <span class="venue">ACC 2018</span>
-        <div>
-          <div class="title">Privacy Preservation in a Continuous-Time Static Average Consensus Algorithm Over Directed Graphs</div>
-          <div class="authors"><em>N. Rezazadeh</em>, S. S. Kia</div>
-        </div>
-      </div>
-
-    </div>
+  <section id="publications">
+    <h2>Publications &amp; Manuscripts</h2>
+    <ol class="pubs">
+      <li>
+        <span class="title">Vertex-Softmax: Tight Transformer Verification via Exact Softmax Optimization.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, A. Gholami.</span>
+        <span class="venue">arXiv.</span>
+      </li>
+      <li>
+        <span class="title">Backtracking Dynamics and Early Exit.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, A. Gholami, P. Pezeshkpour.</span>
+        <span class="venue">arXiv.</span>
+      </li>
+      <li>
+        <span class="title">Geometry-Aware Decoding with Wasserstein-Regularized Truncation and Mass Penalties for LLMs.</span>
+        <span class="authors">A. Gholami Davoodi, <b>N. Rezazadeh</b>, S. P. Mousavi Davoudi, P. Pezeshkpour.</span>
+        <span class="venue hi">ICML 2026 (spotlight).</span>
+      </li>
+      <li>
+        <span class="title">Learning Contraction Policies From Offline Data.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, M. Kolarich, S. S. Kia, N. Mehr.</span>
+        <span class="venue hi">IEEE RA-L 2022 · NeurIPS SafeRL Best Paper Award.</span>
+      </li>
+      <li>
+        <span class="title">A Study of Privacy Preservation in Average Consensus Algorithm via Deterministic Obfuscation Signals.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">IEEE TCNS, 2024.</span>
+      </li>
+      <li>
+        <span class="title">Distributed Strategy Selection: A Submodular Set Function Maximization Approach.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">Automatica, 2023.</span>
+      </li>
+      <li>
+        <span class="title">Distributed Submodular Maximization: Trading Performance for Privacy.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">IEEE CDC, 2022.</span>
+      </li>
+      <li>
+        <span class="title">A Sub-Modular Receding Horizon Solution for Mobile Multi-Agent Persistent Monitoring.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">Automatica, 2021.</span>
+      </li>
+      <li>
+        <span class="title">Multi-Agent Maximization of a Monotone Submodular Function via Maximum Consensus.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">IEEE CDC, 2021.</span>
+      </li>
+      <li>
+        <span class="title">A Sub-Modular Receding Horizon Approach to Persistent Monitoring for a Group of Mobile Agents Over an Urban Area.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">IFAC-PapersOnLine, 2019.</span>
+      </li>
+      <li>
+        <span class="title">Privacy Preservation in Continuous-Time Average Consensus Algorithm via Deterministic Additive Obfuscation Signals.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">arXiv, 2019.</span>
+      </li>
+      <li>
+        <span class="title">Privacy Preservation in a Continuous-Time Static Average Consensus Algorithm Over Directed Graphs.</span>
+        <span class="authors"><b>N. Rezazadeh</b>, S. S. Kia.</span>
+        <span class="venue">ACC, 2018.</span>
+      </li>
+    </ol>
   </section>
 
-  <section id="skills" class="sec reveal">
-    <span class="section-label">Core Technical Skills</span>
-    <h2 class="section-title">Tools of the <em>trade</em>.</h2>
-    <div class="skills">
-      <div class="skill-group">
-        <div class="skill-label">ML / AI</div>
-        <div class="tag-row">
-          <span class="tag">LLM decoding</span>
-          <span class="tag">Transformer verification</span>
-          <span class="tag">Sequence models</span>
-          <span class="tag">GANs</span>
-          <span class="tag">Diffusion</span>
-          <span class="tag">Copulas</span>
-          <span class="tag">Simulator surrogates</span>
-          <span class="tag">Time-series learning</span>
-          <span class="tag">Calibration</span>
-          <span class="tag">Model validation</span>
-        </div>
+  <section id="skills" class="skills">
+    <h2>Core Technical Skills</h2>
+    <dl>
+      <div class="row">
+        <dt>ML / AI</dt>
+        <dd>LLM decoding, transformer verification, sequence models, generative models (GANs, diffusion, copulas), simulator surrogates, time-series learning, calibration, model validation.</dd>
       </div>
-      <div class="skill-group">
-        <div class="skill-label">Mathematics</div>
-        <div class="tag-row">
-          <span class="tag">Optimization</span>
-          <span class="tag">Stochastic processes</span>
-          <span class="tag">Graph algorithms</span>
-          <span class="tag">Control &amp; estimation</span>
-          <span class="tag">Linear algebra</span>
-          <span class="tag">Monte Carlo methods</span>
-        </div>
+      <div class="row">
+        <dt>Mathematics</dt>
+        <dd>Optimization, stochastic processes, graph algorithms, control and estimation, linear algebra, Monte Carlo methods.</dd>
       </div>
-      <div class="skill-group">
-        <div class="skill-label">Tools &amp; Frameworks</div>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">CUDA</span>
-          <span class="tag">Multi-GPU training</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">pandas</span>
-          <span class="tag">CuPy</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">MATLAB</span>
-          <span class="tag">C / C++</span>
-          <span class="tag">Git</span>
-        </div>
+      <div class="row">
+        <dt>Tools</dt>
+        <dd>Python, PyTorch, CUDA, multi-GPU training, NumPy, pandas, CuPy, TensorFlow, MATLAB, C / C++, Git.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="item">
+      <div class="item-head">
+        <h3>Ph.D., Mechanical &amp; Aerospace Engineering</h3>
+        <span class="meta">2017 – 2022</span>
+      </div>
+      <p class="item-sub">University of California, Irvine · GPA 3.99 / 4.00</p>
+      <div class="item-body"><em>Thesis:</em> Distributed Strategy Selection Over Graphs — Optimality and Privacy.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <h3>M.S., Mechanical &amp; Aerospace Engineering</h3>
+        <span class="meta">2016 – 2017</span>
+      </div>
+      <p class="item-sub">University of California, Irvine · GPA 4.00 / 4.00</p>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <h3>B.S., Mechanical Engineering</h3>
+        <span class="meta">2010 – 2014</span>
+      </div>
+      <p class="item-sub">Sharif University of Technology · GPA 3.85 / 4.00</p>
+    </div>
+
+    <div class="item" style="padding-top: 18px;">
+      <div class="item-body">
+        <b style="color: var(--text); font-weight: 600;">Selected Coursework.</b>
+        Deep Learning &amp; Sequence Models, Probabilistic Learning, Bayesian Data Analysis, Convex Optimization, Stochastic Processes, Algorithms.
       </div>
     </div>
   </section>
 
-  <section id="education" class="sec reveal">
-    <span class="section-label">Education</span>
-    <h2 class="section-title">Foundations.</h2>
-    <div class="edu-list">
-      <div class="edu">
-        <div>
-          <h4>Ph.D., Mechanical &amp; Aerospace Engineering</h4>
-          <p>University of California, Irvine · GPA 3.99 / 4.00<br/>
-          <em>Thesis:</em> Distributed Strategy Selection Over Graphs — Optimality and Privacy</p>
-        </div>
-        <span class="when">2017 — 2022</span>
-      </div>
-      <div class="edu">
-        <div>
-          <h4>M.S., Mechanical &amp; Aerospace Engineering</h4>
-          <p>University of California, Irvine · GPA 4.00 / 4.00</p>
-        </div>
-        <span class="when">2016 — 2017</span>
-      </div>
-      <div class="edu">
-        <div>
-          <h4>B.S., Mechanical Engineering</h4>
-          <p>Sharif University of Technology · GPA 3.85 / 4.00</p>
-        </div>
-        <span class="when">2010 — 2014</span>
-      </div>
-    </div>
-    <p style="margin-top: 28px; color: var(--text-dim); font-size: 14.5px;">
-      <span style="color: var(--accent); font-family: var(--mono); font-size: 11.5px; letter-spacing: 1.2px; text-transform: uppercase; display: block; margin-bottom: 8px;">Selected Coursework</span>
-      Deep Learning &amp; Sequence Models · Probabilistic Learning · Bayesian Data Analysis · Convex Optimization · Stochastic Processes · Algorithms
-    </p>
-  </section>
-
-  <section id="honors" class="sec reveal">
-    <span class="section-label">Honors &amp; Awards</span>
-    <h2 class="section-title">Recognition.</h2>
-    <ul class="honor-list">
+  <section id="honors">
+    <h2>Honors</h2>
+    <ul class="plain">
       <li>NeurIPS SafeRL Best Paper Award</li>
       <li>Holmes Fellowship, UCI Mechanical &amp; Aerospace Engineering</li>
       <li>Samueli Endowed Fellowship, UCI</li>
@@ -842,21 +568,12 @@
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-name">Navid <em>Rezazadeh</em></div>
-    <div class="footer-links">
-      <a href="mailto:nrezazad@uci.edu">EMAIL</a>
-      <a href="https://www.linkedin.com/in/nrezazadeh/" target="_blank" rel="noopener">LINKEDIN</a>
-      <a href="https://github.com/navidrezazad" target="_blank" rel="noopener">GITHUB</a>
-      <a href="https://scholar.google.com/scholar?q=Navid+Rezazadeh" target="_blank" rel="noopener">SCHOLAR</a>
-      <a href="resume.pdf" target="_blank" rel="noopener">RESUME</a>
-    </div>
+  <div class="wrap">
+    <p>© 2026 Navid Rezazadeh · San Diego, CA · <a href="mailto:nrezazad@uci.edu">nrezazad@uci.edu</a></p>
   </div>
-  <p class="footer-tiny">© 2026 Navid Rezazadeh · San Diego, CA</p>
 </footer>
 
 <script>
-  // Nav border on scroll
   const nav = document.getElementById('nav');
   const onScroll = () => {
     if (window.scrollY > 8) nav.classList.add('scrolled');
@@ -864,28 +581,6 @@
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Click-to-copy email (still opens mailto via default)
-  const emailBtn = document.getElementById('emailBtn');
-  if (emailBtn && navigator.clipboard) {
-    emailBtn.addEventListener('click', (ev) => {
-      navigator.clipboard.writeText('nrezazad@uci.edu').then(() => {
-        emailBtn.classList.add('copied');
-        setTimeout(() => emailBtn.classList.remove('copied'), 1600);
-      }).catch(() => {});
-    });
-  }
 </script>
 
 </body>
