@@ -1,137 +1,141 @@
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage[left=0.45in,right=0.45in,top=0.55in,bottom=0.55in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[scale=0.96]{tgheros}
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage[final,protrusion=true,expansion=false]{microtype}
+\usepackage{lmodern}
+\usepackage[final]{microtype}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{tabularx}
 \usepackage[dvipsnames]{xcolor}
-
-\definecolor{accent}{HTML}{1F4E5F}
-\definecolor{textgray}{HTML}{303030}
-\definecolor{muted}{HTML}{5E6A6E}
+\usepackage{fancyhdr}
 
 \hypersetup{
   colorlinks=true,
-  urlcolor=accent,
-  linkcolor=accent
+  urlcolor=blue!70!black,
+  linkcolor=black
 }
 
-\pagestyle{empty}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
+\setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{2em}
-\linespread{1.08}
-\setlist[itemize]{leftmargin=0.16in,itemsep=3pt,topsep=4pt,parsep=1pt,partopsep=0pt}
-\setlist[enumerate]{leftmargin=0.24in,itemsep=5pt,topsep=4pt,parsep=1pt,partopsep=0pt}
-\titleformat{\section}
-  {\large\bfseries\color{accent}}
-  {}
-  {0pt}
-  {}
-  [\vspace{-1pt}{\color{accent}\titlerule[0.65pt]}]
-\titlespacing*{\section}{0pt}{9pt}{6pt}
 
-\newcommand{\resumeSubheading}[4]{%
-  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
-    {\large\textbf{#1}} & {\small\color{muted} #2} \\
-    {\small\textit{#3}} & {\small\textit{\color{muted} #4}}
-  \end{tabular*}\vspace{-2pt}
+% Section formatting
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\vspace{-4pt}\hrulefill]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% Custom commands
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}
+  \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-5pt}
 }
-\newcommand{\educationEntry}[3]{%
-  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
-    \textbf{#1} & {\small\color{muted} #2} \\
-    \small #3 &
-  \end{tabular*}\vspace{2pt}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-1pt}
+  \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{\small #1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-5pt}
 }
-\newcommand{\resumeItem}[1]{\item \small #1}
-\newcommand{\resumeNamedItem}[2]{\item \small \textbf{\color{accent} #1:} #2}
-\newcommand{\pubitem}[3]{%
-  \item \small {\color{accent}\textbf{#1}} \quad \textit{#2}\\[-1pt]
-  {\color{textgray}#3}
+
+\newcommand{\resumeItem}[1]{\item\small{#1}\vspace{-2pt}}
+
+\newcommand{\pubentry}[2]{
+  \item\small{\textit{#1}\\#2}\vspace{1pt}
 }
 
 \begin{document}
-\color{textgray}
 
+%----------HEADING----------
 \begin{center}
-  {\fontsize{22}{24}\selectfont \textbf{\color{accent} Navid Rezazadeh}}\\[3pt]
-  \small Machine Learning Research \textbar{} AI Research \textbar{} Generative Models, LLMs, and Scientific Computing\\[3pt]
-  \href{mailto:nrezazad@uci.edu}{nrezazad@uci.edu} \textbar{}
-  +1 (573) 465-4854 \textbar{}
-  \href{https://linkedin.com/in/nrezazadeh}{linkedin.com/in/nrezazadeh} \textbar{}
-  \href{https://github.com/navidrezazad}{github.com/navidrezazad} \textbar{}
+  {\LARGE\textbf{Navid Rezazadeh}}\\[4pt]
+  \small
+  \href{mailto:nrezazad@uci.edu}{nrezazad@uci.edu} $\vert$
+  +1 (573) 465-4854 $\vert$
+  \href{https://linkedin.com/in/nrezazadeh}{linkedin.com/in/nrezazadeh} $\vert$
+  \href{https://github.com/navidrezazad}{github.com/navidrezazad} $\vert$
   \href{https://tinyurl.com/NavidScholar}{Google Scholar}
 \end{center}
-\vspace{-6pt}
 
+%----------SUMMARY----------
 \section{Summary}
-\small Machine learning research engineer at Apple. ICML 2026 spotlight on LLM decoding; recent arXiv work on transformer verification (Vertex-Softmax); in-progress work on LLM reasoning dynamics. Research spans LLM robustness, generative modeling, time-series learning, and GPU-accelerated scientific computing.
+\small
+Machine learning research engineer with a Ph.D.\ in optimization, stochastic systems, and control. Research spans time-series signal modeling, generative distribution modeling, verification, distributed optimization, and high-performance scientific Python/CUDA for quantitative research.
 
+%----------SKILLS----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=-2pt, parsep=2pt]
+  \item \textbf{ML \& Statistics:} Transformers, time-series forecasting, walk-forward validation, ARIMA/ARMA, diffusion models, GAN/VAE, copulas, Kalman/sigma-point/particle filtering, MMD, PCA/SVD, regression
+  \item \textbf{Mathematics:} Stochastic processes, optimization, submodular optimization, graph algorithms, control theory, estimation, linear algebra, numerical simulation
+  \item \textbf{Tools \& Frameworks:} Python, PyTorch, CUDA, multi-GPU orchestration, TensorFlow, NumPy, pandas, CuPy, batched linear algebra, MATLAB, C/C++, Git
+\end{itemize}
+
+%----------EXPERIENCE----------
 \section{Experience}
 \resumeSubheading{Apple}{San Diego, CA}{Machine Learning Research Engineer}{Jun 2022 -- Present}
-\begin{itemize}
-  \resumeNamedItem{Vertex-Softmax}{Developed an exact softmax-optimization primitive with log-linear complexity that produces the tightest possible bounds from pre-softmax score intervals; integrated into a CROWN-style verifier, it improves certified rates and outperforms $\alpha$-CROWN and branch-and-bound on MNIST, Fashion-MNIST, and CIFAR-10 attention models. \href{https://arxiv.org/abs/2605.10974}{arXiv:2605.10974}, code at \href{https://github.com/navidrezazad/VertexSoftmax}{github.com/navidrezazad/VertexSoftmax}.}
-  \resumeNamedItem{Geometry-Aware Decoding}{Co-developed a geometry-aware LLM decoding algorithm combining Wasserstein-regularized truncation with mass penalties to produce more reliable generation; ICML 2026 spotlight.}
-  \resumeNamedItem{Backtracking Dynamics}{Investigated backtracking bursts in long reasoning traces of LLMs and proposed early-exit criteria for efficient generation.}
-  \resumeNamedItem{Transformer Forecasting}{Designed transformer and Informer-based architectures for short-horizon forecasting on high-resolution time-series signals, benchmarked against ARIMA/ARMA statistical baselines under rolling out-of-sample validation.}
-  \resumeNamedItem{Generative Modeling}{Built GAN, diffusion, and copula-based generative workflows for scientific simulator surrogates; validated samples with MMD, feature statistics, and chi-square distributional tests.}
-  \resumeNamedItem{GPU Scientific Computing}{Re-architected scalar scientific pipelines into batched PyTorch/CUDA with multi-GPU data parallelism, reducing per-run evaluation from multi-week scale to sub-hour while preserving CPU-reference parity.}
+\begin{itemize}[leftmargin=0.15in, itemsep=-2pt, parsep=2pt]
+  \resumeItem{Vectorized scalar scientific pipelines into batched PyTorch/CUDA with multi-GPU data parallelism, reducing parameter sweeps from multi-week scale to sub-hour while preserving CPU-reference parity.}
+  \resumeItem{Research workstreams: Foundation Models for Sensor and Time-Series Intelligence; Generative Simulation and Distributional Certification; Neural Inference and Calibration; High-Performance Scientific ML Infrastructure.}
 \end{itemize}
 
 \resumeSubheading{University of California, Irvine}{Irvine, CA}{Graduate Research Assistant}{Jun 2016 -- Jun 2022}
-\begin{itemize}
-  \resumeNamedItem{Learning for Control}{Jointly learned a neural control policy and its contraction metric from offline trajectory data, enforcing stability guarantees via contraction theory; NeurIPS SafeRL Best Paper (IEEE RA-L 2022).}
-  \resumeNamedItem{Probabilistic Estimation}{Built Kalman, sigma-point, and particle filtering methods for probabilistic localization and state estimation in noisy networked systems.}
-  \resumeNamedItem{Distributed Optimization}{Developed distributed algorithms for multi-agent submodular maximization and persistent monitoring with provable optimality bounds, using multilinear extensions, stochastic Pipage rounding, and receding-horizon policy design; extended to privacy-aware settings with a stochastic rounding scheme that explicitly trades optimality for per-agent privacy guarantees (Automatica 2023, Automatica 2021, IEEE CDC 2022).}
-  \resumeNamedItem{Private Networked Systems}{Designed additive-obfuscation privacy-preserving consensus protocols with formal deterministic privacy guarantees against network eavesdroppers while preserving convergence to the true average (IEEE TCNS 2024).}
+\begin{itemize}[leftmargin=0.15in, itemsep=-2pt, parsep=2pt]
+  \resumeItem{Developed optimization and control algorithms for distributed decision making, privacy-preserving estimation, and submodular maximization with provable guarantees.}
+  \resumeItem{Integrated neural networks with contraction theory for stable dynamics and control policies; built Kalman, sigma-point, and particle filtering methods for probabilistic localization and state estimation.}
 \end{itemize}
 
-\section{Education}
-\educationEntry{University of California, Irvine}{2017 -- 2022}{Ph.D. Mechanical \& Aerospace Engineering, GPA 3.99/4.00}
-\small \textit{Thesis: Distributed Strategy Selection Over Graphs: Optimality and Privacy}\vspace{2pt}
+%----------PROJECTS----------
+\section{Selected Projects}
+\resumeProjectHeading{Signal Forecasting Under Stochastic Drift}{Transformers, Informer, ARIMA/ARMA}
+\begin{itemize}[leftmargin=0.15in, itemsep=-2pt, parsep=2pt]
+  \resumeItem{Short-horizon forecasting with rolling baselines, temporal features, and outlier-aware evaluation; compared Transformer/Informer models against ARIMA/ARMA statistical baselines under rolling out-of-sample validation.}
+\end{itemize}
 
-\educationEntry{University of California, Irvine}{2016 -- 2017}{M.S. Mechanical \& Aerospace Engineering, GPA 4.00/4.00}
-\educationEntry{Sharif University of Technology}{2010 -- 2014}{B.S. Mechanical Engineering, GPA 3.85/4.00}
-\small
-\textbf{\color{accent} Selected Coursework}\\
-\textbf{\color{accent} Mathematics:} Real Analysis; Advanced Calculus; Linear Algebra; Optimal Control.\\
-\textbf{\color{accent} Probability \& Statistics:} Stochastic Processes; Bayesian Data Analysis; Advanced Estimation and Detection; Classification, Parameter Estimation, and Filtering; Probabilistic Learning.\\
-\textbf{\color{accent} ML \& Optimization:} Deep Learning and Sequence Models; Convex Optimization; Advanced Optimization Methods; Algorithms.
+\resumeProjectHeading{Generative Modeling for Scientific Simulators}{Diffusion, GANs, Gaussian Copulas, MMD}
+\begin{itemize}[leftmargin=0.15in, itemsep=-2pt, parsep=2pt]
+  \resumeItem{Learned conditional samplers and simulator surrogates; validated generated samples with feature statistics, residual tests, chi-square checks, MMD, and error-driven candidate selection.}
+\end{itemize}
 
-\section{Core Technical Skills}
-\small
-\textbf{\color{accent} ML/AI:} LLM decoding, transformer verification, sequence models, generative models (GANs, diffusion, copulas), simulator surrogates, time-series learning, calibration, model validation.\\
-\textbf{\color{accent} Mathematics:} Optimization, stochastic processes, graph algorithms, control and estimation, linear algebra, Monte Carlo methods.\\
-\textbf{\color{accent} Tools \& Frameworks:} Python, PyTorch, CUDA, multi-GPU training, NumPy, C/C++, Git.
+\resumeProjectHeading{GPU-Accelerated Scientific ML Pipeline}{PyTorch, CUDA, Multi-GPU, Batched Linalg}
+\begin{itemize}[leftmargin=0.15in, itemsep=-2pt, parsep=2pt]
+  \resumeItem{Re-architected scalar sensor-to-physical inference with batched weighted least squares, pseudoinverse, broadcasted geometric transforms, cached GPU state, adaptive batching, and multi-GPU execution; reduced per-run evaluation from hours to seconds.}
+\end{itemize}
 
-\section{Publications and Manuscripts}
-\begin{enumerate}[label={[\arabic*]},itemsep=6pt,topsep=4pt]
-  \pubitem{\href{https://arxiv.org/abs/2605.10974}{arXiv:2605.10974}}{Vertex-Softmax: Tight Transformer Verification via Exact Softmax Optimization.}{\textbf{N. Rezazadeh} and A. Gholami Davoodi.}
-  \pubitem{Under preparation}{The Shape of Overthinking: Backtracking Bursts in Long Reasoning Traces.}{\textbf{N. Rezazadeh} and A. Gholami.}
-  \pubitem{ICML 2026 (spotlight)}{Geometry-Aware Decoding with Wasserstein-Regularized Truncation and Mass Penalties for LLMs.}{A. Gholami Davoodi, \textbf{N. Rezazadeh}, S.\ P. Mousavi Davoudi, and P. Pezeshkpour.}
-  \pubitem{IEEE RA-L, 2022; NeurIPS SafeRL Best Paper Award}{Learning Contraction Policies From Offline Data.}{\textbf{N. Rezazadeh}, M. Kolarich, S.\ S. Kia, and N. Mehr.}
-  \pubitem{IEEE TCNS, 2024}{A Study of Privacy Preservation in Average Consensus Algorithm via Deterministic Obfuscation Signals.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
-  \pubitem{Automatica, 2023}{Distributed Strategy Selection: A Submodular Set Function Maximization Approach.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
-  \pubitem{IEEE CDC, 2022}{Distributed Submodular Maximization: Trading Performance for Privacy.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
-  \pubitem{Automatica, 2021}{A Sub-Modular Receding Horizon Solution for Mobile Multi-Agent Persistent Monitoring.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
-  \pubitem{IEEE CDC, 2021}{Multi-Agent Maximization of a Monotone Submodular Function via Maximum Consensus.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
-  \pubitem{IFAC-PapersOnLine, 2019}{A Sub-Modular Receding Horizon Approach to Persistent Monitoring for a Group of Mobile Agents Over an Urban Area.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
-  \pubitem{arXiv, 2019}{Privacy Preservation in Continuous-Time Average Consensus Algorithm via Deterministic Additive Obfuscation Signals.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
-  \pubitem{ACC, 2018}{Privacy Preservation in a Continuous-Time Static Average Consensus Algorithm Over Directed Graphs.}{\textbf{N. Rezazadeh} and S.\ S. Kia.}
+%----------PUBLICATIONS----------
+\section{Selected Publications}
+\begin{enumerate}[leftmargin=0.2in, itemsep=2pt, parsep=2pt, label={[\arabic*]}]
+  \pubentry{IEEE TCNS, 2024}{\textbf{N.\ Rezazadeh}, S.S.\ Kia, \textit{``A Study of Privacy Preservation in Average Consensus Algorithm via Deterministic Obfuscation Signals.''}}
+  \pubentry{Automatica, 2023}{\textbf{N.\ Rezazadeh}, S.S.\ Kia, \textit{``Distributed Strategy Selection: A Submodular Set Function Maximization Approach.''}}
+  \pubentry{IEEE RA-L, 2022 -- NeurIPS SafeRL Best Paper Award}{\textbf{N.\ Rezazadeh}, M.\ Kolarich, S.S.\ Kia, N.\ Mehr, \textit{``Learning Contraction Policies From Offline Data.''}}
+  \pubentry{Automatica, 2021}{\textbf{N.\ Rezazadeh}, S.S.\ Kia, \textit{``A Sub-Modular Receding Horizon Solution for Mobile Multi-Agent Persistent Monitoring.''}}
+  \pubentry{IEEE CDC, 2022}{\textbf{N.\ Rezazadeh}, S.S.\ Kia, \textit{``Distributed Submodular Maximization: Trading Performance for Privacy.''}}
+  \pubentry{IEEE CDC, 2021}{\textbf{N.\ Rezazadeh}, S.S.\ Kia, \textit{``Multi-Agent Maximization of a Monotone Submodular Function via Maximum Consensus.''}}
 \end{enumerate}
 
+%----------EDUCATION----------
+\section{Education}
+\vspace{2pt}
+\resumeSubheading{University of California, Irvine}{2017 -- 2022}{Ph.D.\ Mechanical \& Aerospace Engineering, GPA 3.99/4.00}{}
+\begin{itemize}[leftmargin=0.15in, itemsep=-2pt, parsep=2pt]
+  \resumeItem{Thesis: Distributed Strategy Selection Over Graphs: Optimality and Privacy}
+\end{itemize}
+\vspace{4pt}
+\resumeSubheading{University of California, Irvine}{2016 -- 2017}{M.S.\ Mechanical \& Aerospace Engineering, GPA 4.00/4.00}{}
+\vspace{6pt}
+\resumeSubheading{Sharif University of Technology}{2010 -- 2014}{B.S.\ Mechanical Engineering, GPA 3.85/4.00}{}
+\vspace{8pt}
+\small\textit{Selected coursework:} Algorithms; Stochastic Processes; Real Analysis; Bayesian Data Analysis; Deep Learning and Sequence Models; Advanced Estimation and Detection; Classification, Parameter Estimation, and Filtering.
+
+%----------HONORS----------
 \section{Honors}
-\begin{itemize}
-  \resumeItem{NeurIPS SafeRL Best Paper Award}
-  \resumeItem{Holmes Fellowship, UCI MAE}
-  \resumeItem{Samueli Endowed Fellowship, UCI}
-  \resumeItem{Semifinalist, Iran National Physics and Mathematics Olympiads}
-  \resumeItem{Ranked 250th among 300{,}000+ in Iran national university entrance exam}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=-2pt, parsep=2pt]
+  \item\small NeurIPS SafeRL Best Paper Award $\vert$ Holmes Fellowship, UCI MAE $\vert$ Samueli Endowed Fellowship, UCI $\vert$ Iran National Elite Foundation Fellowship $\vert$ Ranked 250th among 300,000+ in Iran national university entrance exam
 \end{itemize}
 
 \end{document}

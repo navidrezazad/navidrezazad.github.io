@@ -7,7 +7,7 @@
   <meta name="description" content="Navid Rezazadeh — Machine Learning Research Engineer at Apple. Research in LLM decoding, transformer verification, generative models, and GPU-accelerated scientific computing." />
   <meta name="author" content="Navid Rezazadeh" />
   <meta property="og:title" content="Navid Rezazadeh" />
-  <meta property="og:description" content="ML Research Engineer at Apple · ICML 2026 spotlight · NeurIPS SafeRL Best Paper" />
+  <meta property="og:description" content="ML Research Engineer at Apple · NeurIPS SafeRL Best Paper" />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -383,7 +383,6 @@
     <p class="lede">
       I work on the mathematical foundations of large language models and generative systems —
       LLM decoding, transformer verification, generative modeling, and GPU-accelerated scientific computing.
-      My recent work on geometry-aware LLM decoding is an ICML 2026 spotlight.
     </p>
     <div class="links">
       <a href="resume.pdf" target="_blank" rel="noopener">Resume</a><span class="sep">·</span>
@@ -396,36 +395,6 @@
 
   <section id="research">
     <h2>Selected Research</h2>
-
-    <div class="item">
-      <div class="item-head">
-        <h3>Geometry-Aware Decoding for LLMs</h3>
-        <span class="meta hi">ICML 2026 · spotlight</span>
-      </div>
-      <div class="item-body">
-        An LLM decoding algorithm combining Wasserstein-regularized truncation with mass penalties — producing more reliable, better-calibrated generation.
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="item-head">
-        <h3>Vertex-Softmax: Tight Transformer Verification</h3>
-        <span class="meta">arXiv · <a href="https://github.com/navidrezazad/VertexSoftmax" target="_blank" rel="noopener">code</a></span>
-      </div>
-      <div class="item-body">
-        An exact softmax optimization method that yields strictly tighter certified bounds for transformer verification than standard relaxation-based approaches.
-      </div>
-    </div>
-
-    <div class="item">
-      <div class="item-head">
-        <h3>Backtracking Dynamics &amp; Early Exit</h3>
-        <span class="meta">arXiv</span>
-      </div>
-      <div class="item-body">
-        Investigates how LLMs revise reasoning mid-generation, and proposes early-exit criteria that reduce wasted compute without sacrificing answer quality.
-      </div>
-    </div>
 
     <div class="item">
       <div class="item-head">
@@ -447,9 +416,6 @@
         <span class="meta">San Diego · Jun 2022 – Present</span>
       </div>
       <ul class="bullets">
-        <li><b>Vertex-Softmax.</b> Exact softmax optimization yielding tighter certified bounds for transformer verification than relaxation-based methods. <a href="https://github.com/navidrezazad/VertexSoftmax" target="_blank" rel="noopener">Open-sourced</a>.</li>
-        <li><b>Geometry-Aware Decoding.</b> Co-developed Wasserstein-regularized truncation with mass penalties for LLM generation. ICML 2026 spotlight.</li>
-        <li><b>Backtracking Dynamics.</b> Investigated mid-generation reasoning dynamics in LLMs; proposed early-exit criteria for efficient inference.</li>
         <li><b>Transformer Forecasting.</b> Designed transformer and Informer architectures for short-horizon forecasting on high-resolution signals; benchmarked against ARIMA / ARMA under rolling out-of-sample validation.</li>
         <li><b>Generative Modeling.</b> Built GAN, diffusion, and copula-based surrogates for scientific simulators; validated with MMD, feature statistics, and chi-square distributional tests.</li>
         <li><b>GPU Scientific Computing.</b> Re-architected scalar pipelines into batched PyTorch/CUDA with multi-GPU data parallelism — multi-week runs compressed to sub-hour with CPU-reference parity.</li>
@@ -473,21 +439,6 @@
   <section id="publications">
     <h2>Publications &amp; Manuscripts</h2>
     <ol class="pubs">
-      <li>
-        <span class="title">Vertex-Softmax: Tight Transformer Verification via Exact Softmax Optimization.</span>
-        <span class="authors"><b>N. Rezazadeh</b>, A. Gholami.</span>
-        <span class="venue">arXiv.</span>
-      </li>
-      <li>
-        <span class="title">Backtracking Dynamics and Early Exit.</span>
-        <span class="authors"><b>N. Rezazadeh</b>, A. Gholami, P. Pezeshkpour.</span>
-        <span class="venue">arXiv.</span>
-      </li>
-      <li>
-        <span class="title">Geometry-Aware Decoding with Wasserstein-Regularized Truncation and Mass Penalties for LLMs.</span>
-        <span class="authors">A. Gholami Davoodi, <b>N. Rezazadeh</b>, S. P. Mousavi Davoudi, P. Pezeshkpour.</span>
-        <span class="venue hi">ICML 2026 (spotlight).</span>
-      </li>
       <li>
         <span class="title">Learning Contraction Policies From Offline Data.</span>
         <span class="authors"><b>N. Rezazadeh</b>, M. Kolarich, S. S. Kia, N. Mehr.</span>
