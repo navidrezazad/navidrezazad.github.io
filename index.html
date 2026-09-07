@@ -92,15 +92,16 @@
       gap: 20px;
     }
     .nav-name { font-weight: 600; font-size: 15px; color: var(--text); }
-    .nav-links { display: flex; gap: 22px; font-size: 14px; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; }
     .nav-links a {
       color: var(--text-2);
       text-decoration: none;
       transition: color 0.15s ease;
     }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
-    @media (max-width: 640px) {
-      .nav-links { gap: 16px; }
+    @media (max-width: 760px) {
+      .nav-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .nav-links { gap: 8px 16px; }
       .nav-links a.hide-sm { display: none; }
     }
 
@@ -365,6 +366,7 @@
       <a href="#research" class="hide-sm">Research</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
+      <a href="reinforcement-learning/">Reinforcement Learning</a>
       <a href="resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
     </div>
   </div>
